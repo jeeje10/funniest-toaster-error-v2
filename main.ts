@@ -8,8 +8,10 @@ import { join } from "node:path";
 const entry =
   "Error: the toast is burnt. I have apologised to the toast. The toast has accepted.";
 
-if (entry.length < 1 || entry.length > 120 || entry.trim().length === 0) {
-  throw new Error(`entry is ${entry.length} characters, must be 1-120`);
+const MAX_CHARS = 120;
+
+if (entry.length < 1 || entry.length > MAX_CHARS || entry.trim().length === 0) {
+  throw new Error(`entry is ${entry.length} characters, must be 1-${MAX_CHARS}`);
 }
 
 const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
